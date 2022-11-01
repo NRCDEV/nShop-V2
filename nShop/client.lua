@@ -155,3 +155,19 @@ CreateThread(function()
         end
     end
 end)
+
+CreateThread(function ()
+    for k, v in pairs(Config.ShopPos) do
+        if v.blips then
+            local blip = AddBlipForCoord(v.pos.x, v.pos.y, v.pos.z)
+
+            SetBlipSprite(blip, 52)
+            SetBlipScale(blip, 0.7)
+            SetBlipColour(blip, 2)
+            SetBlipAsShortRange(blip, true)
+            BeginTextCommandSetBlipName('STRING')
+            AddTextComponentSubstringPlayerName('Superette')
+            EndTextCommandSetBlipName(blip)
+        end
+    end
+end)
